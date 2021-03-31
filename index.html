@@ -1,4 +1,41 @@
-Contador
-Informe uma data
-DD/MM/AAAA
-Iniciar contagem
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Contador</title>
+  </head>
+  <body>
+    <main class="container">
+      <section class="countdown-form">
+        <h1>Contador</h1>
+        <h3>Informe uma data:</h3>
+        <div class="form">
+          <input type="date" />
+          <span class="form-error" id="formError"></span>
+          <button type="submit" id="btnStart">Iniciar contagem</button>
+        </div>
+      </section>
+      <section class="countdown-modal" id="countdownModal">
+        <div class="countdown-content">
+          <header class="countdown-header">
+            <h1>Contador</h1>
+            <button type="submit" id="btnReset">Reiniciar</button>
+          </header>
+          <div class="countdown">
+            <h2>Faltam</h2>
+            <ul>
+              <li><span id="days">00</span> dias</li>
+              <li><span id="hours">00</span> horas</li>
+              <li><span id="minutes">00</span> minutos</li>
+              <li><span id="seconds">00</span> segundos</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+:root {
+  --accent: #21eb00;
+  --bg: #111111;
+  --dark-bg: #2f2f2e;
+  --text: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 0 1em;
+  color: var(--accent);
+}
+
+input[type="date"],
+button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 20px;
+  border: 2px solid transparent;
+}
+
+input[type="date"]:focus,
+button:focus {
+  outline: 2px solid transparent;
+  border: 2px solid var(--accent);
+}
+
+button:hover {
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+button {
+  display: block;
+  background: var(--accent);
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 1.2rem 2.3rem;
+  margin: 1em 0;
+  transition: 0.2s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.countdown-form {
+  text-align: center;
+  width: 100%;
+  max-width: 250px;
+}
+
+.countdown-form .form-error {
+  font-size: 1.2rem;
+  display: block;
+  margin: 1em 0;
+  font-weight: bold;
+  color: #eb0000;
+}
+
+.countdown-form h3 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 0 0 0.8em;
+}
+.countdown-form input[type="date"] {
+  background: var(--dark-bg)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24' stroke='%23f5f5f5' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round' class='css-i6dzq1'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E")
+    90% 45% no-repeat;
+  background-size: 18px;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.countdown-form input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+.countdown-form input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  margin-right: 10px;
+}
+
+.countdown-modal {
+  position: absolute;
+  background: var(--bg);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.countdown-content {
+  width: 100%;
+  max-width: 1024px;
+  display: grid;
+  grid-template-rows: 1fr 80vh;
+  justify-items: center;
+}
+
+.countdown-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.countdown-header button {
+  width: 150px;
+  padding: 0.9rem;
+  margin-top: 0;
+}
+
+.countdown {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countdown span {
+  display: block;
+  margin: 0.1em 0 0;
+}
+
+.countdown span:first-child {
+  font-size: 8.4rem;
+  color: var(--text);
+}
+
+.countdown li {
+  margin: 2em;
+  color: var(--accent);
+}
