@@ -3,10 +3,10 @@ const btnReset = document.getElementById("btnReset");
 const countdownModal = document.getElementById("countdownModal");
 const formError = document.getElementById("formError");
 const dateInput = document.querySelector('input[type="date"]');
-console.log(dateInput);
+const until = document.getElementById("until");
 
 let today = new Date();
-let setDay = today.getDate();
+let setDay = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
 let setMonth = today.getMonth() < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
 let setYear = today.getFullYear();
 today = `${setYear}-${setMonth}-${setDay}`;
@@ -36,6 +36,7 @@ function handleDateChecker() {
 
 function handleCountDown() {
   if (dateInput.value === "") {
+    formError.style.display = "block";
     formError.innerText = "Preencha uma data.";
   } else {
     startCountDown = setInterval(countdown, 1000);
@@ -62,11 +63,11 @@ function countdown() {
     let minutes = Math.floor((time % hour) / minute);
     let seconds = Math.floor((time % minute) / second);
 
-    renderCountdown(days, hours, minutes, seconds);
+    renderCountdown(days, hours, minutes, seconds, endDate);
   }
 }
 
-function renderCountdown(days, hours, minutes, seconds) {
+function renderCountdown(days, hours, minutes, seconds, endDate) {
   days = days < 10 ? "0" + days : days;
   hours = hours < 10 ? "0" + hours : hours;
   minutes = minutes < 10 ? "0" + minutes : minutes;
@@ -75,4 +76,6 @@ function renderCountdown(days, hours, minutes, seconds) {
   elHours.innerHTML = hours;
   elMinutes.innerHTML = minutes;
   elSeconds.innerHTML = seconds;
+
+  until.innerText = `${endDate}`;
 }
