@@ -84,5 +84,5 @@ function renderCountdown(days, hours, minutes, seconds, endDate) {
   elMinutes.innerHTML = minutes;
   elSeconds.innerHTML = seconds;
 
-  until.innerText = `${formatDate.dateInput(new Date()).renderDate}`;
+  until.innerText = `${formatDate.dateInput(new Date(endDate)).renderDate}`;
 }
