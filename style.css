@@ -212,7 +212,7 @@ button {
 .countdown h2 span:first-child {
   display: inline-block;
   font-size: inherit;
-  color: inherit;
+  color: var(--accent);
 }
 
 .countdown span:last-child {

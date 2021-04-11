@@ -5,13 +5,20 @@ const formError = document.getElementById("formError");
 const dateInput = document.querySelector('input[type="date"]');
 const until = document.getElementById("until");
 
-let today = new Date();
-let setDay = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
-let setMonth = today.getMonth() < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
-let setYear = today.getFullYear();
-today = `${setYear}-${setMonth}-${setDay}`;
+const formatDate = {
+  dateInput(date) {
+    let today = date;
+    let setDay = today.getDate() < 10 ? "0" + today.getDate() : today.getDate();
+    let setMonth = today.getMonth() < 10 ? "0" + (today.getMonth() + 1) : today.getMonth() + 1;
+    let setYear = today.getFullYear();
+    return {
+      dateInput: (today = `${setYear}-${setMonth}-${setDay}`),
+      renderDate: (today = `${setDay} / ${setMonth} / ${setYear}`),
+    };
+  },
+};
 
-dateInput.setAttribute("min", today);
+dateInput.setAttribute("min", formatDate.dateInput(new Date()).dateInput);
 
 const second = 1000;
 const minute = second * 60;
@@ -77,5 +84,5 @@ function renderCountdown(days, hours, minutes, seconds, endDate) {
   elMinutes.innerHTML = minutes;
   elSeconds.innerHTML = seconds;
 
-  until.innerText = `${endDate}`;
+  until.innerText = `${formatDate.dateInput(new Date()).renderDate}`;
 }
